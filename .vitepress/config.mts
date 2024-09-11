@@ -79,9 +79,9 @@ export default defineConfig({
       copyright: 'Copyright © 2024-present Yilu All rights reserved.'
     },
     // github图标
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ],
+    // socialLinks: [
+    //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+    // ],
     // 显示最近更新
     lastUpdated: {
       text: 'Updated at',
