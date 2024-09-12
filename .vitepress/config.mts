@@ -6,7 +6,6 @@ export default defineConfig({
   title: "Yilu-Website",
   description: "一路招新官网",
   themeConfig: {
-    // logo: 'http://cdn.fafadan.cn/image/20240827/5f669b14-4c23-417c-8c9f-74d8b51eed9e.png',
     logo: '/yilu-logo.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -70,6 +69,13 @@ export default defineConfig({
           { text: '论文阅读🙌', link: '/markdown-MachineLearning/item3' },
           { text: '(进阶题）怎么让机器分析词语的情感？🍭', link: '/markdown-MachineLearning/item4' },
           { text: '提交方式', link: '/markdown-MachineLearning/item5' },
+        ]
+      },
+      {
+        text: '工作室资料',
+        items: [
+          { text: '博客友链🔗', link: '/StudioInfo/FriendLink' },
+         
         ]
       }
     ],

@@ -44,5 +44,7 @@ features:
     linkText: 更多信息
   - icon: 🛠️                           
     title: 工作室资料                     
-    details: 目前公开的信息：施工中......         
+    details: 目前公开的信息：施工中......      
+    link: /StudioInfo/FriendLink
+    linkText: 更多信息
 ---
