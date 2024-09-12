@@ -27,8 +27,8 @@ features:
     details: 掌握核心概念，构建你的知识基础。深入理解编程语言和开发工具的基本原理。
     link: /BasicKnowledge/item1
     linkText: 更多信息
-  - icon: 🫧
-    title: 前端🫧
+  - icon: 🦄
+    title: 前端🦄
     details: 探索用户界面的魅力，学习如何使用 HTML、CSS 和 JavaScript 构建交互式网页。
     link: /markdown-frontEnd/item1
     linkText: 更多信息

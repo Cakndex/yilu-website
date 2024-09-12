@@ -13,7 +13,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: '2024秋季招新🖐️ ', link: '/Recruitment/item1' },
       { text: '基础知识📖', link: '/BasicKnowledge/item1' },
-      { text: '前端🫧', link: '/markdown-frontEnd/item1' },
+      { text: '前端🦄', link: '/markdown-frontEnd/item1' },
       { text: '后端✨', link: '/markdown-backEnd/item1' },
       { text: '机器学习🤖', link: '/markdown-MachineLearning/item1' }
     ],
@@ -37,7 +37,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '前端🫧',
+        text: '前端🦄',
         items: [
           { text: '前端学习指南', link: '/markdown-frontEnd/item1' },
           { text: '前端-0001', link: '/markdown-frontEnd/item2' },
