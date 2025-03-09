@@ -35,7 +35,7 @@
 <img src="./avatar/luvmand.png" alt="Ari" class="avatar">
 
 - **博客**: [Ari's Blog](https://luvmand.top)
-- **关键词**: <span class="keyword" style="background-color: var(--keyword-color-1);">嵌入式</span>, <span class="keyword" style="background-color: var(--keyword-color-2);">EdgeAI</span>, <span class="keyword" style="background-color: var(--keyword-color-3);">音乐总结</span>
+- **关键词**: <span class="keyword" style="background-color: var(--keyword-color-1);">前端开发</span>, <span class="keyword" style="background-color: var(--keyword-color-2);">笔记</span>, <span class="keyword" style="background-color: var(--keyword-color-3);">嵌入式</span>
 
 ## Cakndex
 

@@ -18,7 +18,7 @@ hero:
 
 features:
   - icon: 🖐️   
-    title: 2024秋季招新🖐️ 
+    title: 2025春季招新🖐️ 
     details: 加入我们，开启你的技术之旅。在这里，你将获得实践经验，与志同道合的伙伴一起成长。
     link: /Recruitment/item1
     linkText: 更多信息
