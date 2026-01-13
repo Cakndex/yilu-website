@@ -10,7 +10,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '2025春季招新🖐️ ', link: '/Recruitment/item1' },
+      { text: '2026春季招新🖐️ ', link: '/Recruitment/item1' },
       { text: '基础知识📖', link: '/BasicKnowledge/item1' },
       { text: '前端🦄', link: '/markdown-frontEnd/item1' },
       { text: '后端✨', link: '/markdown-backEnd/item1' },
@@ -19,7 +19,7 @@ export default defineConfig({
     // 侧边导航栏
     sidebar: [
       {
-        text: '2024秋季招新🖐️',
+        text: '2026春季招新🖐️',
         items: [
           { text: '工作室简介', link: '/Recruitment/item1' },
           { text: '学习的小建议', link: '/Recruitment/item2' },
