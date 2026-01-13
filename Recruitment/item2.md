@@ -41,7 +41,7 @@
 
 ### 📧 提交邮箱
 
-- <2050406742@qq.com>
+- <duanzhicheng2022@outlook.com>
 
 ### 📁 文件命名
 
