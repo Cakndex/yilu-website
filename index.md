@@ -13,7 +13,7 @@ hero:
     - theme: brand
       text: 🚀进入招新🚀
       link: /Recruitment/item1
-    - theme: alt
+    - theme: brand
       text: 公开资料库（待施工🏗️）
       link: /Publicdatabase/else
 
