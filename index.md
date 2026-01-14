@@ -15,7 +15,7 @@ hero:
       link: /Recruitment/item1
     - theme: alt
       text: 公开资料库（待施工🏗️）
-      link: /Publicdatabase/Front-EndLPS.md
+      link: /PublicDatabase/Front-EndLPS.md
 
 features:
   - icon: 🖐️   
