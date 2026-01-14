@@ -14,7 +14,7 @@ hero:
       text: 🚀进入招新🚀
       link: /Recruitment/item1
     - theme: alt
-      text: 公开资料库（待施工🏗️）
+      text: 🏗️公开资料库🏗️
       link: /Publicdatabase/else
 
 features:
