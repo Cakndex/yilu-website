@@ -15,7 +15,7 @@ hero:
       link: /Recruitment/item1
     - theme: alt
       text: 🏗️公开资料库🏗️
-      link: /Publicdatabase/item1
+      link: /Publicdatabase/item1.md
 
 features:
   - icon: 🖐️   
