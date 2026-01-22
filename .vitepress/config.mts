@@ -1,23 +1,29 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: "Yilu-Website",
   description: "一路招新官网",
   themeConfig: {
     logo: '/yilu-logo.png',
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      // 新增：在导航栏加入公开资料库
+      { text: '公开资料库🏗️', link: '/Publicdatabase/item1' }, 
       { text: '2026春季招新🖐️ ', link: '/Recruitment/item1' },
       { text: '基础知识📖', link: '/BasicKnowledge/item1' },
       { text: '前端🦄', link: '/markdown-frontEnd/item1' },
       { text: '后端✨', link: '/markdown-backEnd/item1' },
       { text: '机器学习🤖', link: '/markdown-MachineLearning/item1' }
     ],
-    // 侧边导航栏
     sidebar: [
+      // 新增：在侧边栏最上方加入公开资料库
+      {
+        text: '🏗️ 公开资料库',
+        items: [
+          { text: '公开资料项 1', link: '/Publicdatabase/item1' }
+        ]
+      },
       {
         text: '2026春季招新🖐️',
         items: [
@@ -75,7 +81,6 @@ export default defineConfig({
         text: '工作室资料',
         items: [
           { text: '博客友链🔗', link: '/StudioInfo/FriendLink' },
-         
         ]
       }
     ],
@@ -84,11 +89,6 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024-present Yilu All rights reserved.'
     },
-    // github图标
-    // socialLinks: [
-    //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    // ],
-    // 显示最近更新
     lastUpdated: {
       text: 'Updated at',
       formatOptions: {
