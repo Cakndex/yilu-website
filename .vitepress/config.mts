@@ -1,27 +1,31 @@
 import { defineConfig } from 'vitepress'
 
+// https://vitepress.dev/reference/site-config
 export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: "Yilu-Website",
   description: "一路招新官网",
   themeConfig: {
     logo: '/yilu-logo.png',
+    
+    // 1. 导航栏修改：增加与首页对应的“公开资料库”入口
     nav: [
       { text: 'Home', link: '/' },
-      // 新增：在导航栏加入公开资料库
-      { text: '公开资料库🏗️', link: '/Publicdatabase/item1' }, 
+      { text: '公开资料库🏗️', link: '/Publicdatabase/item1' }, // 对应首页 alt 按钮
       { text: '2026春季招新🖐️ ', link: '/Recruitment/item1' },
       { text: '基础知识📖', link: '/BasicKnowledge/item1' },
       { text: '前端🦄', link: '/markdown-frontEnd/item1' },
       { text: '后端✨', link: '/markdown-backEnd/item1' },
       { text: '机器学习🤖', link: '/markdown-MachineLearning/item1' }
     ],
+
+    // 2. 侧边栏修改：确保 Publicdatabase 被注册，防止路由丢失
     sidebar: [
-      // 新增：在侧边栏最上方加入公开资料库
       {
         text: '🏗️ 公开资料库',
+        collapsed: false,
         items: [
-          { text: '公开资料项 1', link: '/Publicdatabase/item1' }
+          { text: '资料项 1', link: '/Publicdatabase/item1' }
         ]
       },
       {
@@ -89,6 +93,7 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024-present Yilu All rights reserved.'
     },
+    
     lastUpdated: {
       text: 'Updated at',
       formatOptions: {
