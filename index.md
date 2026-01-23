@@ -23,7 +23,7 @@ features:
     details: 加入我们，开启你的技术之旅。在这里，你将获得实践经验，与志同道合的伙伴一起成长。
     link: /Recruitment/item1
     linkText: 更多信息
- - icon: 🏗️  
+  - icon: 🏗️  
     title: 公开资料库🏗️
     details: 查看学习路径
     link: /Publicdatabase/item1
