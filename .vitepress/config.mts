@@ -23,7 +23,6 @@ export default defineConfig({
     sidebar: [
       {
         text: '🏗️ 公开资料库',
-        collapsed: false,
         items: [
           { text: '公开资料项 1', link: '/Publicdatabase/item1' }
         ]
@@ -74,11 +73,14 @@ export default defineConfig({
       {
         text: '机器学习🤖',
         items: [
-          { text: '初入机器学习🏅', link: '/markdown-MachineLearning/item1' },
-          { text: '小试牛刀🎈', link: '/markdown-MachineLearning/item2' },
-          { text: '论文阅读🙌', link: '/markdown-MachineLearning/item3' },
-          { text: '(进阶题）怎么让机器分析词语的情感？🍭', link: '/markdown-MachineLearning/item4' },
-          { text: '提交方式', link: '/markdown-MachineLearning/item5' },
+          { text: '机器学习方向招新前言🏅', link: '/markdown-MachineLearning/item1' },
+          { text: '环境搭建与深度学习基础🎈', link: '/markdown-MachineLearning/item2' },
+          { text: '回归与分类 —— 可视化的力量🙌', link: '/markdown-MachineLearning/item3' },
+          { text: '计算机视觉—— 安全帽佩戴检测🍭', link: '/markdown-MachineLearning/item4' },
+          { text: '自然语言处理（NLP）—— Transformer', link: '/markdown-MachineLearning/item5' },
+          { text: '（进阶1 选做）：Prompt Engineering —— 打造你的“苏格拉底”AI 导师', link: '/markdown-MachineLearning/item6' },
+          { text: '进阶2 选做）：视觉新范式 —— ViT 的“迁移”与“透视”', link: '/markdown-MachineLearning/item7' },
+          { text: '（进阶3 选做）：生成式魔法 —— Diffusion Model', link: '/markdown-MachineLearning/item8' },
         ]
       },
       {
