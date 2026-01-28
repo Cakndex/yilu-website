@@ -22,12 +22,6 @@ export default defineConfig({
     // 2. 侧边栏：已注册 Publicdatabase 路径，防止路由回退到根目录
     sidebar: [
       {
-        text: '🏗️ 公开资料库',
-        items: [
-          { text: '公开资料项 1', link: '/Publicdatabase/item1' }
-        ]
-      },
-      {
         text: '2026春季招新🖐️',
         items: [
           { text: '工作室简介', link: '/Recruitment/item1' },
