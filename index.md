@@ -14,21 +14,15 @@ hero:
       text: 🚀进入招新🚀
       link: /Recruitment/item1
     - theme: alt
-      text: 🏗️公开资料库🏗️
-      link: /Publicdatabase/item1
+      text: 公开资料库（待施工🏗️）
 
 features:
-  - icon: 🖐️
-    title: 2026春季招新🖐️
+  - icon: 🖐️   
+    title: 2026春季招新🖐️ 
     details: 加入我们，开启你的技术之旅。在这里，你将获得实践经验，与志同道合的伙伴一起成长。
     link: /Recruitment/item1
     linkText: 更多信息
-  - icon: 🏗️
-    title: 公开资料库🏗️
-    details: 查看学习路径
-    link: /Publicdatabase/item1
-    linkText: 更多信息
-  - icon: 📖
+  - icon: 📖  
     title: 基础知识📖
     details: 掌握核心概念，构建你的知识基础。深入理解编程语言和开发工具的基本原理。
     link: /BasicKnowledge/item1

@@ -7,19 +7,16 @@ export default defineConfig({
   description: "一路招新官网",
   themeConfig: {
     logo: '/yilu-logo.png',
-
-    // 1. 导航栏：已同步首页“公开资料库”按钮跳转逻辑
+    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '公开资料库🏗️', link: '/Publicdatabase/item1' }, 
       { text: '2026春季招新🖐️ ', link: '/Recruitment/item1' },
       { text: '基础知识📖', link: '/BasicKnowledge/item1' },
       { text: '前端🦄', link: '/markdown-frontEnd/item1' },
       { text: '后端✨', link: '/markdown-backEnd/item1' },
       { text: '机器学习🤖', link: '/markdown-MachineLearning/item1' }
     ],
-
-    // 2. 侧边栏：已注册 Publicdatabase 路径，防止路由回退到根目录
+    // 侧边导航栏
     sidebar: [
       {
         text: '2026春季招新🖐️',
@@ -67,13 +64,13 @@ export default defineConfig({
       {
         text: '机器学习🤖',
         items: [
-          { text: '机器学习方向招新前言🏅', link: '/markdown-MachineLearning/item1' },
-          { text: '环境搭建与深度学习基础🎈', link: '/markdown-MachineLearning/item2' },
-          { text: '回归与分类 —— 可视化的力量🙌', link: '/markdown-MachineLearning/item3' },
-          { text: '计算机视觉—— 安全帽佩戴检测🍭', link: '/markdown-MachineLearning/item4' },
+          { text: '初入机器学习🏅', link: '/markdown-MachineLearning/item1' },
+          { text: '环境搭建与深度学习基础', link: '/markdown-MachineLearning/item2' },
+          { text: '回归与分类 —— 可视化的力量', link: '/markdown-MachineLearning/item3' },
+          { text: '计算机视觉—— 安全帽佩戴检测', link: '/markdown-MachineLearning/item4' },
           { text: '自然语言处理（NLP）—— Transformer', link: '/markdown-MachineLearning/item5' },
           { text: '（进阶1 选做）：Prompt Engineering —— 打造你的“苏格拉底”AI 导师', link: '/markdown-MachineLearning/item6' },
-          { text: '进阶2 选做）：视觉新范式 —— ViT 的“迁移”与“透视”', link: '/markdown-MachineLearning/item7' },
+          { text: '（进阶2 选做）：视觉新范式 —— ViT 的“迁移”与“透视”', link: '/markdown-MachineLearning/item7' },
           { text: '（进阶3 选做）：生成式魔法 —— Diffusion Model', link: '/markdown-MachineLearning/item8' },
         ]
       },
@@ -81,6 +78,7 @@ export default defineConfig({
         text: '工作室资料',
         items: [
           { text: '博客友链🔗', link: '/StudioInfo/FriendLink' },
+         
         ]
       }
     ],
@@ -89,7 +87,11 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024-present Yilu All rights reserved.'
     },
-
+    // github图标
+    // socialLinks: [
+    //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+    // ],
+    // 显示最近更新
     lastUpdated: {
       text: 'Updated at',
       formatOptions: {

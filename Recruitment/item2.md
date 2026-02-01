@@ -37,11 +37,11 @@
 
 ### 📁 命名格式
 
-- 姓名-方向-学号-第几次提交
+- 姓名-方向-学号-第几次提交（ml方向：学号+姓名+ml-0x（第几题））
 
 ### 📧 提交邮箱
 
-- <duanzhicheng2022@outlook.com>
+- <duanzhicheng2022@outlook.com>（ml方向3489066384@qq.com）
 
 ### 📁 文件命名
 
