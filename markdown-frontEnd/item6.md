@@ -17,6 +17,6 @@
 通过完成这道题目，你将掌握前端开发的基本技能，包括HTML、CSS和JavaScript的使用。同时，你将在实践中提升代码编写能力、优化思维和解决问题的能力。期待你的作品能为珍贵的爱情时刻增添一份独特的浪漫与温馨。
 
 <video controls >
-  <source src="纪念日.mp4" type="video/mp4">
+  <source src="/纪念日.mp4" type="video/mp4">
   您的浏览器不支持视频播放。
 </video>
