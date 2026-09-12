@@ -1,7 +1,495 @@
 /* .vitepress/theme/custom.css */
 :root {
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background:-webkit-linear-gradient( 315deg, #42d392 25%, #647eff );
-    --vp-home-hero-image-background-image: linear-gradient( -45deg, #44eafe 50%, #47caff 50% );
-    --vp-home-hero-image-filter: blur(72px);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #44eafe 50%, #47caff 50%);
+  --vp-home-hero-image-filter: blur(72px);
+  --vp-c-brand-1: #2478ad;
+  --vp-c-brand-2: #329ac3;
+  --vp-c-brand-soft: rgba(54, 158, 197, 0.13);
+  --vp-sidebar-width: 260px;
+  --vp-layout-max-width: 1680px;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html:not(.dark) {
+  --vp-c-bg: #f3f7fa;
+  --vp-c-bg-alt: #eaf2f6;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-divider: rgba(33, 82, 121, 0.12);
+  --vp-c-gutter: #edf3f7;
+  --vp-sidebar-bg-color: #edf4f7;
+  --vp-code-block-bg: #f4f8fb;
+  --vp-code-block-color: #1f2d3d;
+}
+
+html.yilu-intro-open {
+  overflow-y: scroll;
+  overscroll-behavior: none;
+}
+
+html.yilu-intro-open body {
+  overflow: hidden;
+}
+
+.yilu-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #12335f;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(74, 207, 255, 0.18), transparent 30%),
+    linear-gradient(135deg, #edf9ff 0%, #ffffff 52%, #e9f3ff 100%);
+}
+
+.yilu-intro__grid {
+  position: absolute;
+  inset: -20%;
+  opacity: 0.48;
+  background-image:
+    linear-gradient(rgba(61, 146, 230, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 146, 230, 0.1) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at center, #000 0%, transparent 64%);
+  animation: yilu-grid-flow 5s linear infinite;
+}
+
+.yilu-intro__brand {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: yilu-intro-brand 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.yilu-intro__logo {
+  width: min(210px, 42vw);
+  filter: drop-shadow(0 20px 45px rgba(45, 163, 235, 0.22));
+  animation: yilu-intro-logo 1.45s ease-out both;
+}
+
+.yilu-intro__brand strong {
+  margin-top: -4px;
+  font-size: clamp(24px, 4vw, 38px);
+  letter-spacing: 0.08em;
+}
+
+.yilu-intro__brand span {
+  margin-top: 10px;
+  color: #4a91cf;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+}
+
+.yilu-intro__progress {
+  position: absolute;
+  bottom: 13%;
+  width: min(260px, 58vw);
+  height: 2px;
+  overflow: hidden;
+  background: rgba(64, 134, 204, 0.16);
+  border-radius: 999px;
+}
+
+.yilu-intro__progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #42d392, #44b9ff, #647eff);
+  transform-origin: left center;
+  animation: yilu-intro-progress 1.62s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.yilu-intro-leave-active {
+  transition: opacity 0.42s ease, transform 0.42s ease;
+}
+
+.yilu-intro-leave-to {
+  opacity: 0;
+  transform: scale(1.012);
+}
+
+html.yilu-motion-ready .VPNav {
+  animation: yilu-nav-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html.yilu-motion-ready .VPHero .name {
+  animation: yilu-enter-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+}
+
+html.yilu-motion-ready .VPHero .text {
+  animation: yilu-enter-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+}
+
+html.yilu-motion-ready .VPHero .tagline {
+  animation: yilu-enter-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+}
+
+html.yilu-motion-ready .VPHero .actions {
+  animation: yilu-enter-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
+}
+
+html.yilu-motion-ready .VPHero .image-container {
+  animation: yilu-hero-logo 7s ease-in-out 0.3s infinite;
+}
+
+html.yilu-motion-ready .VPHero .image-bg {
+  animation: yilu-image-glow 5s ease-in-out infinite;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature {
+  animation: yilu-feature-in 0.72s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(2) {
+  animation-delay: 0.07s;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(3) {
+  animation-delay: 0.14s;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(4) {
+  animation-delay: 0.21s;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(5) {
+  animation-delay: 0.28s;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(6) {
+  animation-delay: 0.35s;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(7) {
+  animation-delay: 0.42s;
+}
+
+html.yilu-motion-ready .VPFeatures .VPFeature:nth-child(8) {
+  animation-delay: 0.49s;
+}
+
+.VPFeature {
+  transition:
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.32s ease,
+    background-color 0.32s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 42px rgba(48, 119, 188, 0.13);
+}
+
+.VPButton.brand {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPButton.brand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.32), transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 0.6s ease;
+}
+
+.VPButton.brand:hover::after {
+  transform: translateX(130%);
+}
+
+.VPSidebarItem .item {
+  margin-right: -8px;
+  margin-left: -8px;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-radius: 7px;
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.VPSidebarItem .item:hover {
+  background: var(--vp-c-default-soft);
+  transform: translateX(4px);
+}
+
+.VPSidebarItem.level-0 > .item:hover {
+  transform: translateX(2px);
+}
+
+.VPSidebarItem.is-active > .item {
+  background: var(--vp-c-brand-soft);
+  border-radius: 10px;
+}
+
+.VPSidebarItem.is-active > .item .link .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+}
+
+.VPSidebarItem .indicator {
+  display: none;
+}
+
+.VPSidebarGroup .group + .group {
+  border-top: 0;
+  padding-top: 8px;
+}
+
+.VPSidebarItem .items {
+  border-left: 0;
+  padding-left: 8px;
+}
+
+.VPSidebarItem .caret {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.VPSidebarItem .item:hover .caret {
+  color: var(--vp-c-brand-1);
+}
+
+.VPDocAsideOutline .content {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.VPDocAsideOutline .outline-title {
+  color: var(--vp-c-text-2);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.VPDocAsideOutline .outline-link {
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 6px;
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.VPDocAsideOutline .outline-link:hover {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-default-soft);
+  transform: translateX(4px);
+}
+
+.VPDocAsideOutline .outline-link.active {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border-radius: 8px;
+  font-weight: 650;
+}
+
+html:not(.dark) .VPNavBar {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(33, 82, 121, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+html:not(.dark) .VPSidebar {
+  border-right: 1px solid rgba(33, 82, 121, 0.09);
+}
+
+@media (min-width: 960px) {
+  html:not(.dark) .VPDoc .container > .content {
+    margin-top: 24px;
+    margin-bottom: 38px;
+    padding: 34px 40px 44px;
+    background: #ffffff;
+    border: 1px solid rgba(33, 82, 121, 0.1);
+    border-radius: 22px;
+    box-shadow: 0 14px 42px rgba(31, 77, 112, 0.08);
   }
+
+  html:not(.dark) .VPDoc .content-container {
+    max-width: 860px;
+  }
+}
+
+html:not(.dark) .VPFeature {
+  background: #ffffff;
+  border: 1px solid rgba(33, 82, 121, 0.1);
+  box-shadow: 0 10px 28px rgba(31, 77, 112, 0.06);
+}
+
+.vp-doc blockquote {
+  margin: 22px 0;
+  padding: 16px 18px;
+  color: var(--vp-c-text-1);
+  background: #edf7fb;
+  border-left: 4px solid #51a9c5;
+  border-radius: 10px;
+}
+
+.vp-doc blockquote > p {
+  margin: 0;
+}
+
+.vp-doc table {
+  overflow: hidden;
+  border: 1px solid rgba(33, 82, 121, 0.12);
+  border-radius: 12px;
+}
+
+.vp-doc th {
+  color: var(--vp-c-text-1);
+  background: #e8f3f7;
+}
+
+.vp-doc tr:nth-child(even) {
+  background: #f8fbfd;
+}
+
+.vp-doc .custom-block {
+  border-radius: 12px;
+}
+
+.yilu-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--yilu-delay, 0s),
+    transform 0.72s cubic-bezier(0.16, 1, 0.3, 1) var(--yilu-delay, 0s);
+}
+
+.yilu-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes yilu-grid-flow {
+  to {
+    background-position: 54px 54px;
+  }
+}
+
+@keyframes yilu-intro-brand {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes yilu-intro-logo {
+  from {
+    opacity: 0;
+    transform: scale(0.82) rotate(-3deg);
+  }
+  45% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes yilu-intro-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes yilu-nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes yilu-enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes yilu-feature-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes yilu-hero-logo {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes yilu-image-glow {
+  0%,
+  100% {
+    opacity: 0.78;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .yilu-intro {
+    display: none;
+  }
+
+  .yilu-reveal,
+  html.yilu-motion-ready .VPNav,
+  html.yilu-motion-ready .VPHero .name,
+  html.yilu-motion-ready .VPHero .text,
+  html.yilu-motion-ready .VPHero .tagline,
+  html.yilu-motion-ready .VPHero .actions,
+  html.yilu-motion-ready .VPHero .image-container,
+  html.yilu-motion-ready .VPFeatures .VPFeature {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -2,7 +2,10 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/jpeg', href: '/yilu-favicon.jpg' }],
+    ['link', { rel: 'apple-touch-icon', href: '/yilu-favicon.jpg' }]
+  ],
   title: "Yilu-Website",
   description: "一路招新官网",
   themeConfig: {
@@ -10,33 +13,40 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: '2026春季招新🖐️ ', link: '/Recruitment/item1' },
-      { text: '基础知识📖', link: '/BasicKnowledge/item1' },
+      { text: '2026秋季招新🖐️ ', link: '/Recruitment/item1' },
+      { text: '基础知识📖', link: '/BasicKnowledge/' },
       { text: '前端🦄', link: '/markdown-frontEnd/item1' },
       { text: '后端✨', link: '/markdown-backEnd/item1' },
-      { text: '机器学习🤖', link: '/markdown-MachineLearning/item1' }
+      { text: '机器学习🤖', link: '/markdown-MachineLearning/item1' },
+      { text: '工作室资料', link: '/StudioInfo/FriendLink' }
     ],
     // 侧边导航栏
     sidebar: [
       {
-        text: '2026春季招新🖐️',
+        text: '2026秋季招新🖐️',
+        collapsed: true,
         items: [
           { text: '工作室简介', link: '/Recruitment/item1' },
-          { text: '学习的小建议', link: '/Recruitment/item2' },
+          { text: '写给准备加入的你', link: '/Recruitment/item3' },
+          { text: '本次招新相关', link: '/Recruitment/item2' },
         ]
       },
       {
         text: '基础知识📖',
+        collapsed: true,
         items: [
-          { text: '程序员必备', link: '/BasicKnowledge/item1' },
-          { text: 'C语言入门', link: '/BasicKnowledge/item2' },
-          { text: 'C语言0000', link: '/BasicKnowledge/item3' },
-          { text: 'C语言0001', link: '/BasicKnowledge/item4' },
-          { text: 'C语言0010', link: '/BasicKnowledge/item5' },
+          { text: '基础知识总览', link: '/BasicKnowledge/' },
+          { text: '1️⃣ 计算机与程序基础', link: '/BasicKnowledge/computer-basics' },
+          { text: '2️⃣ 编程与开发工具', link: '/BasicKnowledge/tools' },
+          { text: '3️⃣ Markdown 与学习记录', link: '/BasicKnowledge/markdown' },
+          { text: '4️⃣ Git 与代码协作', link: '/BasicKnowledge/git' },
+          { text: '5️⃣ 搜索、提问与 AI', link: '/BasicKnowledge/search-and-ai' },
+          { text: '6️⃣ 学习方法与节奏', link: '/BasicKnowledge/learning-guide' },
         ]
       },
       {
         text: '前端🦄',
+        collapsed: true,
         items: [
           { text: '前端学习指南', link: '/markdown-frontEnd/item1' },
           { text: '前端-0001', link: '/markdown-frontEnd/item2' },
@@ -49,6 +59,7 @@ export default defineConfig({
       },
       {
         text: '后端✨',
+        collapsed: true,
         items: [
           { text: '后端学习指南', link: '/markdown-backEnd/item1' },
           { text: '后端-0001（语言基础）', link: '/markdown-backEnd/item2' },
@@ -63,6 +74,7 @@ export default defineConfig({
       },
       {
         text: '机器学习🤖',
+        collapsed: true,
         items: [
           { text: '初入机器学习🏅', link: '/markdown-MachineLearning/item1' },
           { text: '环境搭建与深度学习基础', link: '/markdown-MachineLearning/item2' },
@@ -76,7 +88,9 @@ export default defineConfig({
       },
       {
         text: '工作室资料',
+        collapsed: true,
         items: [
+          { text: '竞赛成果与成长机会', link: '/StudioInfo/Achievements' },
           { text: '博客友链🔗', link: '/StudioInfo/FriendLink' },
          
         ]
@@ -86,6 +100,10 @@ export default defineConfig({
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024-present Yilu All rights reserved.'
+    },
+    outline: {
+      level: [2, 3],
+      label: '本页目录'
     },
     // github图标
     // socialLinks: [
