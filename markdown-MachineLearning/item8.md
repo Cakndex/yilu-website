@@ -1,77 +1,133 @@
+# Part 4.B : 自然语言处理（NLP）—— Transformer
 
- # Part 5（进阶3 选做）：生成式魔法 —— Diffusion Model
+ ## 1. 背景介绍
 
- 本题将“实现方式的选择权”交给你：你既可以手搓公式，也可以调库完成工程闭环；但重心放在**论文理解**与**实验复现**上。
+ Transformer 并不是一个巨大的黑盒，它其实是由一个个相同的Block堆叠而成的。每一个 Block 都包含两个核心子层：
 
- ## 🎯 背景与目标
+ - **Multi-Head Self-Attention多头注意力机制**：负责捕捉词与词之间的关系。
+ - **Feed-Forward Network前馈神经网络**：负责处理特征。
 
- 从 Stable Diffusion 到 Sora，现代生成式 AI 的核心几乎都是 **Diffusion Model（扩散模型）**。
+ 更重要的是，为了防止网络退化，每个子层周围都包裹着 **Residual Connection残差连接** 和 **Layer Normalization层归一化**。公式如下：
 
- 本任务要求你复现这一前沿技术。我们**不限制**你使用的具体工具，但你必须完成指定目标，并证明你真正理解了背后的原理。
+ $$\text{Output} = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 
- **你的任务：** 在 **MNIST** 或 **Fashion-MNIST** 数据集上训练一个 Diffusion Model。给它一堆全是雪花点的纯噪声，它能将其还原为图像。
+ **你的任务**：用PyTorch搭建一个标准的 Transformer Block。
 
- ## 📄 论文精读与思考
+ ## 2. 任务拆解
 
- 在开始写代码之前，请务必阅读 Diffusion 领域的开山之作（至少阅读 Abstract 和 Method 章节），并回答紧随其后的思考题。这有助于你理解代码中每一步在做什么。
+ ### Step 1：核心零件 —— Self-Attention
 
- - **必读论文：** [Denoising Diffusion Probabilistic Models（DDPM）](https://arxiv.org/abs/2006.11239)（Ho et al., NeurIPS 2020）
+ #### 任务
 
- ### 🧠 论文导读思考题
+ 我们先不考虑多头（Multi-Head）的复杂维度变换，先实现一个单头的 Self-Attention 类。
 
- 1. **关于前向过程：**
+ #### 代码填空
 
-    论文中定义了一个固定的加噪过程。请问：随着时间步 $t$ 的增加（从 $0$ 到 $T$），图像 $x_t$ 的分布会逐渐趋近于什么分布？为什么这个性质对于生成过程至关重要？
+ ```python
+ import torch
+ import torch.nn as nn
+ import torch.nn.functional as F
 
- 2. **关于逆向过程：**
+ class SingleHeadSelfAttention(nn.Module):
+     def __init__(self, d_model):
+         super().__init__()
+         self.d_model = d_model
+         # 定义三个线性层: W_q, W_k, W_v
+         self.w_q = nn.Linear(d_model, d_model)
+         self.w_k = nn.Linear(d_model, d_model)
+         self.w_v = nn.Linear(d_model, d_model)
 
-    我们训练神经网络是为了模拟逆向过程。论文指出，为了从 $x_t$ 还原出 $x_{t-1}$，神经网络本质上是在预测什么？（是预测原图 $x_0$？还是预测该步加入的噪声 $\epsilon$？亦或是预测均值 $\mu$？）
+     def forward(self, x, mask=None):
+         # x shape: [batch_size, seq_len, d_model]
 
- 3. **关于网络输入：**
+         # 1. 生成 Q, K, V
+         Q = self.w_q(x)
+         K = self.w_k(x)
+         V = self.w_v(x)
 
-    为什么在输入图片 $x_t$ 的同时，还必须把当前的时间步 $t$（Time Step）告诉神经网络？如果不输入 $t$，网络在处理 $x_t$（微小噪声）和 $x_T$（巨大噪声）的图片时会遇到什么逻辑矛盾？
+         # 2. 计算 Attention Score = Q @ K^T / sqrt(d_model)
+         # [请填空]
 
- ## 🛠️ 任务要求
+         # 3. 加上 Mask (可选，如果mask不为None)
+         # [请填空]
 
- 你可以自由选择实现路径，但最终必须跑通以下流程：
+         # 4. Softmax + 与 V 相乘
+         # [请填空]
 
- ### Step 1：数据准备
+         return output, attention_weights
+ ```
 
- - 加载 MNIST 或 Fashion-MNIST 数据集。
- - 注意：Diffusion Model 通常要求输入数据归一化到 `[-1, 1]` 之间，请确保你的预处理步骤正确。
+ ### Step 2：组装架构 —— Transformer Block
 
- ### Step 2：构建扩散模型
+ #### 任务
 
- 无论你是否使用库，你需要构建包含以下逻辑的 Pipeline：
+ 你需要把刚才写的 Attention 和一个简单的全连接层（FFN）组合起来，并加上残差连接和归一化。
 
- - **噪声调度**：定义 $\beta_t$ 从 $1$ 到 $T$ 的变化规律（通常是线性增长）。
- - **网络结构**：搭建一个 **U-Net** 风格的网络。
-   - 输入：`(Batch, 1, 28, 28)` 的图片 + 时间步 `t`
-   - 输出：与输入形状相同的预测噪声
- - 提示：如果手写，注意如何将时间步 $t$ 编码并融入到卷积特征中。
+ #### 结构图参考
 
- ### Step 3：训练
+ `Input -> Attention -> Add -> LayerNorm -> FeedForward -> Add -> LayerNorm -> Output`
 
- 实现论文中的训练算法：
+ #### 代码填空
 
- 1. 随机采样干净图片 $x_0$ 和时间步 $t$。
- 2. 生成随机高斯噪声 $\epsilon$。
- 3. 根据公式生成带噪图片 $x_t$。
- 4. 让网络根据 $x_t$ 和 $t$ 预测噪声 $\epsilon$。
- 5. 计算 Loss。
+ ```python
+ class TransformerBlock(nn.Module):
+     def __init__(self, d_model):
+         super().__init__()
+         self.attention = SingleHeadSelfAttention(d_model)
+         self.norm1 = nn.LayerNorm(d_model)
+         self.norm2 = nn.LayerNorm(d_model)
 
- ### Step 4：采样与生成
+         # 前馈网络通常是: Linear -> ReLU -> Linear
+         self.feed_forward = nn.Sequential(
+             nn.Linear(d_model, 4 * d_model),
+             nn.ReLU(),
+             nn.Linear(4 * d_model, d_model)
+         )
 
- - 实现逆向去噪算法。
- - 从标准正态分布采样纯噪声 $x_T$，经过 $T$ 步迭代，最终生成图片 $x_0$。
+     def forward(self, x, mask=None):
+         # Part 1: Attention + Add + Norm
+         # 注意：这里是面试常考点，究竟是先Norm还是后Norm？(这里采用经典的 Post-LN)
 
- ## 📂 提交内容
+         attn_out, _ = self.attention(x, mask)
+         x = self.norm1(x + attn_out) # [关键代码] 残差连接: x + sublayer(x)
 
- 1. **代码文件**：完整的训练与采样脚本。
- 2. **实验报告**：
-    - 思考题回答：对上述 3 个论文导读问题的解答。
-    - Loss 曲线：证明你的模型收敛了。
-    - 生成结果展示：
-      - 生成一张 **网格图**，展示 16 个生成的数字/服饰。
-      - （加分项）动图/视频，展示一张图片从“满屏雪花点”一步步变清晰的过程。
+         # Part 2: FFN + Add + Norm
+         # 请补全这部分代码，实现 FeedForward 的残差连接结构
+         # [请填空]
+
+         return x
+ ```
+
+ ### Step 3：跑通
+
+ #### 任务
+
+ - 随机生成一个输入张量：`x = torch.randn(2, 10, 64)`（Batch=2, Length=10, Dim=64）。
+ - 实例化你的 `TransformerBlock`。
+ - 将 `x` 输入模型，检查输出的 Shape 是否依然是 `(2, 10, 64)`。
+
+ #### 进阶验证
+
+ 打印模型输出的均值和方差，观察 LayerNorm 是否生效（方差应该接近 1）。
+
+ ## 3. 回答问题
+
+ 1. **Mask之为什么是“负无穷”？**
+
+    在实现 Mask 机制时（比如为了不让模型看见未来的词，或者屏蔽掉 Padding 的空位置），我们通常的操作是：
+    `scores = scores.masked_fill(mask == 0, -1e9)`
+    即将被 Mask 的位置填为一个极小的负数（负无穷）。问题：为什么我们不直接把这些位置乘以 0？
+    提示：请回想一下 Softmax 的公式 $S_i = \frac{e^{x_i}}{\sum e^{x_j}}$。如果输入是 $0$，那么 $e^0$ 等于多少？这会导致这个位置的注意力权重变成 $0$ 吗？
+
+ 2. **Q、K、V 的意义**
+    在 Self-Attention 中，输入 $X$ 明明都是同一个词向量序列，为什么我们要大费周章地用三个不同的线性变换矩阵（$W_Q, W_K, W_V$）把它映射成 $Q$（Query）、$K$（Key）、$V$（Value）？
+    假设：如果我们不进行映射，直接让 $Q=X, K=X, V=X$，然后去算 $Attention(X, X, X) = \text{softmax}(XX^T)X$，这在逻辑上会有什么局限性？
+ 3. **点积的几何视角**
+    Attention 的核心公式里有一个 $Q \cdot K^T$（点积）。问题：两个向量的点积（Dot Product）在几何上代表了什么关系？
+    推演：当一个词的 Query 向量和另一个词的 Key 向量点积很大时，意味着这两个词在语义空间中处于什么状态？
+
+ 4. **缩放因子：为什么要除以 $\sqrt{d_k}$？**
+
+    公式里有一个不起眼的除法：$\frac{QK^T}{\sqrt{d_k}}$。问题：如果不除以这个数，当 $d_k$（向量维度）非常大时，点积的结果数值会变得很大。这时候再过 Softmax 函数，会导致**梯度**发生什么现象？
+
 
