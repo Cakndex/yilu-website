@@ -25,8 +25,4 @@
 - [Java学习教程，Java基础教程（从入门到精通）](http://c.biancheng.net/java/)
 - [Java核心技术 卷1 基础知识 原书第10版](https://pan.baidu.com/s/13HViBOjWD5mE8OMbdhaSuQ?pwd=au7k)
 
-#### 上传
-
->  大家在上传的时候需要将自己的学习总结和代码写在markdown里，上传前记得把.md文件转换成pdf，要不然我们是看不见里面的图片的。文件名改为后端+题号+姓名+学号
-
 

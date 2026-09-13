@@ -65,11 +65,10 @@ export default defineConfig({
           { text: '后端-0001（语言基础）', link: '/markdown-backEnd/item2' },
           { text: '后端-0010（语言基础）', link: '/markdown-backEnd/item3' },
           { text: '后端-0011（语言基础）', link: '/markdown-backEnd/item4' },
-          { text: '后端-0100（语言基础）', link: '/markdown-backEnd/item5' },
-          { text: '后端-0101（Web基础）', link: '/markdown-backEnd/item6' },
-          { text: '后端-0110（Web基础选做）', link: '/markdown-backEnd/item7' },
-          { text: '后端-0111（Web进阶）', link: '/markdown-backEnd/item8' },
-          { text: '后端-1000（附加题）', link: '/markdown-backEnd/item9' },
+          { text: '后端-0100（Web基础）', link: '/markdown-backEnd/item6' },
+          { text: '后端-0101（Web基础选做）', link: '/markdown-backEnd/item7' },
+          { text: '后端-0110（Web进阶）', link: '/markdown-backEnd/item8' },
+          { text: '后端-0111（附加题）', link: '/markdown-backEnd/item9' },
         ]
       },
       {
