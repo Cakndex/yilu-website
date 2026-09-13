@@ -54,6 +54,60 @@ Content-Type: application/json
 }
 ```
 
+长度约定按 `String.length()` 计算。
+
+## 参考项目结构
+
+对 Maven 项目结构还不熟悉的话，可以先用下面的骨架起步（包名可自定）：
+
+```text
+web-01/
+├── pom.xml
+└── src
+    └── main
+        └── java
+            └── com.example.web01
+                ├── Web01Application.java
+                ├── controller
+                │   ├── HealthController.java
+                │   └── EchoController.java
+                ├── service
+                │   └── EchoService.java
+                └── pojo
+                    ├── EchoRequest.java
+                    └── EchoResponse.java
+```
+
+`pom.xml` 的最小配置：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>web-01</artifactId>
+    <version>1.0.0</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.0</version>
+    </parent>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+版本以课程教学内容为准；如果使用 Spring Boot 3.x，需要 JDK 17 及以上。
+
 ## 实现要求
 
 - 项目需要包含 Controller 和 Service 两层。
@@ -67,7 +121,7 @@ Content-Type: application/json
 1. Maven 主要解决了什么问题？
 2. HTTP 请求和响应分别由哪些主要部分组成？
 3. IOC 和依赖注入的作用是什么？
-4. Controller、Service 和 Mapper 在完整项目中分别负责什么？
+4. Controller、Service 和持久层（Mapper/DAO）在完整项目中分别负责什么？
 
 ## 完成清单
 

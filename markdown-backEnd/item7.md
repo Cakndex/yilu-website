@@ -17,6 +17,10 @@
 创建数据库和 `student` 表：
 
 ```sql
+CREATE DATABASE IF NOT EXISTS school DEFAULT CHARSET utf8mb4;
+
+USE school;
+
 CREATE TABLE student (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     student_no VARCHAR(32) NOT NULL UNIQUE,
@@ -39,6 +43,39 @@ CREATE TABLE student (
 - 将查询结果输出到控制台。
 - 正确关闭连接、语句和结果集。
 
+如果觉得起步阶段比较困难，可以参考下面的模板骨架，只需要在 `TODO` 处补充自己的逻辑（连接信息请换成自己的配置，且不要把真实密码提交到仓库）：
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class JdbcDemo {
+
+    static final String URL = "jdbc:mysql://localhost:3306/school"; // 换成自己的地址
+    static final String USER = "root";                              // 换成自己的用户名
+    static final String PASSWORD = "123456";                        // 换成自己的密码
+
+    public static void main(String[] args) {
+        String studentNo = "20260001";
+        String sql = "SELECT id, student_no, name, score FROM student WHERE student_no = ?";
+
+        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, studentNo);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    // TODO：使用 resultSet.getXxx(...) 读取字段并输出
+                }
+            }
+        }
+    }
+}
+```
+
 ### 阶段二：MyBatis CRUD
 
 将同一张 `student` 表接入 MyBatis，实现：
@@ -51,11 +88,17 @@ CREATE TABLE student (
 
 ## 实现要求
 
+### 必做
+
 - 学号必须保持唯一，重复数据不能写入数据库。
-- SQL 参数必须使用预编译参数，不允许拼接用户输入。
-- 数据库用户名、密码和地址不能写死在提交的代码或文档中。
-- 可以为连接池选择课程中使用的一种实现，并说明它的作用。
-- 记录本题学习笔记，笔记内容不作其他限制，但开头需要回答本题的全部“必答问题”。
+- SQL 参数必须使用预编译参数，不允许拼接用户输入；MyBatis 阶段同样禁止拼接。
+- 数据库用户名、密码和地址不能提交到仓库中（建议使用本地配置文件并加入 `.gitignore`，或使用环境变量）。
+
+### 拓展（加分，可选）
+
+- 选择一种数据库连接池实现，并说明它的作用。
+
+记录本题学习笔记，笔记内容不作其他限制，但开头需要回答本题的全部“必答问题”。
 
 ## 必答问题
 
@@ -66,9 +109,15 @@ CREATE TABLE student (
 
 ## 完成清单
 
+必做：
+
 - [ ] `student` 表创建成功
 - [ ] 原生 JDBC 查询可以正常运行
 - [ ] MyBatis 五种基本操作都已实现
 - [ ] 学号唯一约束能够生效
 - [ ] 代码中没有真实数据库密码
 - [ ] 学习笔记已先回答本题全部必答问题
+
+拓展（可选，加分）：
+
+- [ ] 使用了数据库连接池并说明它的作用

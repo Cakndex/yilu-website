@@ -20,7 +20,7 @@
 - 私有字段：`studentId`、`name`、`score`、`status`。
 - `status` 使用枚举 `StudentStatus`，至少包含 `STUDYING` 和 `GRADUATED`。
 - 使用构造方法初始化学生信息。
-- 使用公有的读取和修改方法访问私有字段。
+- 使用公有的读取和修改方法访问私有字段（允许使用 IDEA 自动生成 getter/setter）。
 - 使用静态变量记录程序创建过的学生对象数量。
 - 使用 `static final` 定义一个工作室名称常量。
 
