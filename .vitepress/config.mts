@@ -95,13 +95,15 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '初入机器学习🏅', link: '/markdown-MachineLearning/item1' },
-          { text: '环境搭建与深度学习基础', link: '/markdown-MachineLearning/item2' },
-          { text: '回归与分类 —— 可视化的力量', link: '/markdown-MachineLearning/item3' },
-          { text: '计算机视觉—— 安全帽佩戴检测', link: '/markdown-MachineLearning/item4' },
-          { text: '自然语言处理（NLP）—— Transformer', link: '/markdown-MachineLearning/item5' },
-          { text: '（进阶1 选做）：Prompt Engineering —— 打造你的“苏格拉底”AI 导师', link: '/markdown-MachineLearning/item6' },
-          { text: '（进阶2 选做）：视觉新范式 —— ViT 的“迁移”与“透视”', link: '/markdown-MachineLearning/item7' },
-          { text: '（进阶3 选做）：生成式魔法 —— Diffusion Model', link: '/markdown-MachineLearning/item8' },
+          { text: 'Part 0 出发包', link: '/markdown-MachineLearning/item2' },
+          { text: 'Part 1 黑盒拆解实验卡', link: '/markdown-MachineLearning/item3' },
+          { text: 'Part 2 决策边界画家', link: '/markdown-MachineLearning/item4' },
+          { text: 'Part 3 计算机视觉', link: '/markdown-MachineLearning/item5' },
+          { text: 'Part 4 方向探险', link: '/markdown-MachineLearning/item6' },
+          { text: 'Part 4.A : Prompt Engineering —— 打造你的“苏格拉底”AI 导师', link: '/markdown-MachineLearning/item7' },
+          { text: 'Part 4.B : 自然语言处理（NLP）—— Transformer', link: '/markdown-MachineLearning/item8' },
+          { text: 'Part 4.C : 视觉新范式 —— ViT 的“迁移”与“透视”', link: '/markdown-MachineLearning/item9' },
+          { text: 'Part 4.D : 生成式魔法 —— Diffusion Model', link: '/markdown-MachineLearning/item10' },
         ]
       },
       {
