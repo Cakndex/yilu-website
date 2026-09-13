@@ -51,6 +51,13 @@
 - **博客**: [DongQing Hai的博客](https://dqhai.cn/)
 - **关键词**: <span class="keyword" style="background-color: var(--keyword-color-1);">人工智能</span>, <span class="keyword" style="background-color: var(--keyword-color-2);">后端架构</span>, <span class="keyword" style="background-color: var(--keyword-color-3);">技术笔记</span>
 
+## on_pluto_
+
+<img src="./avatar/on-pluto.jpg" alt="on_pluto_" class="avatar">
+
+- **博客**: [on_pluto_ 的 CSDN 博客](https://blog.csdn.net/2301_79601111?type=blog)
+- **关键词**: <span class="keyword" style="background-color: var(--keyword-color-4);">算法练习</span>, <span class="keyword" style="background-color: var(--keyword-color-5);">论文理解</span>, <span class="keyword" style="background-color: var(--keyword-color-6);">推荐系统</span>
+
 <style>
     :root {
         --keyword-color-1: #FFF0F5;
