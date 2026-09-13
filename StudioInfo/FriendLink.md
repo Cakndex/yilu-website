@@ -58,6 +58,14 @@
 - **博客**: [on_pluto_ 的 CSDN 博客](https://blog.csdn.net/2301_79601111?type=blog)
 - **关键词**: <span class="keyword" style="background-color: var(--keyword-color-4);">算法练习</span>, <span class="keyword" style="background-color: var(--keyword-color-5);">论文理解</span>, <span class="keyword" style="background-color: var(--keyword-color-6);">推荐系统</span>
 
+## 座椅联合图书馆
+
+<img src="./avatar/goodwood-ci.jpg" alt="座椅联合图书馆" class="avatar">
+
+- **主站**: [gczyws.xyz](https://gczyws.xyz)
+- **备用站**: [goodwood-ci.asia](https://goodwood-ci.asia)
+- **关键词**: <span class="keyword" style="background-color: var(--keyword-color-1);">马克思主义</span>, <span class="keyword" style="background-color: var(--keyword-color-2);">思政课</span>, <span class="keyword" style="background-color: var(--keyword-color-3);">个人创作</span>
+
 <style>
     :root {
         --keyword-color-1: #FFF0F5;
