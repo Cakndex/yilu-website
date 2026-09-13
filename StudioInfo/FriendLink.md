@@ -44,6 +44,13 @@
 - **博客**: [Cakndex's CSDN Blog](https://blog.csdn.net/Lyy_ID)
 - **关键词**: <span class="keyword" style="background-color: var(--keyword-color-4);">Vue3</span>, <span class="keyword" style="background-color: var(--keyword-color-5);">AJAX</span>, <span class="keyword" style="background-color: var(--keyword-color-6);">蓝桥杯</span>
 
+## DongQing Hai
+
+<img src="./avatar/dqhai.jpg" alt="DongQing Hai" class="avatar">
+
+- **博客**: [DongQing Hai的博客](https://dqhai.cn/)
+- **关键词**: <span class="keyword" style="background-color: var(--keyword-color-1);">人工智能</span>, <span class="keyword" style="background-color: var(--keyword-color-2);">后端架构</span>, <span class="keyword" style="background-color: var(--keyword-color-3);">技术笔记</span>
+
 <style>
     :root {
         --keyword-color-1: #FFF0F5;
