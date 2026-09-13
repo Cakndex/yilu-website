@@ -53,4 +53,5 @@ GitHub 是常用的 Git 远程托管平台。可以把代码保存在仓库中�
 
 ## 参考教程
 
+- [Git 学习视频](https://www.bilibili.com/video/BV14Y3p6uE6b?t=1223.1)
 - [廖雪峰的 Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)

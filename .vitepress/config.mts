@@ -62,13 +62,32 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: '后端学习指南', link: '/markdown-backEnd/item1' },
-          { text: '后端-0001（语言基础）', link: '/markdown-backEnd/item2' },
-          { text: '后端-0010（语言基础）', link: '/markdown-backEnd/item3' },
-          { text: '后端-0011（语言基础）', link: '/markdown-backEnd/item4' },
-          { text: '后端-0100（Web基础）', link: '/markdown-backEnd/item6' },
-          { text: '后端-0101（Web基础选做）', link: '/markdown-backEnd/item7' },
-          { text: '后端-0110（Web进阶）', link: '/markdown-backEnd/item8' },
-          { text: '后端-0111（附加题）', link: '/markdown-backEnd/item9' },
+          {
+            text: '基础题',
+            collapsed: false,
+            items: [
+              { text: '基础-01 Java 入门、变量与流程控制', link: '/markdown-backEnd/item2' },
+              { text: '基础-02 数组、方法与内存基础', link: '/markdown-backEnd/item3' },
+              { text: '基础-03 面向对象基础', link: '/markdown-backEnd/item4' },
+              { text: '基础-04 面向对象高级', link: '/markdown-backEnd/item5' },
+            ]
+          },
+          {
+            text: 'Web 题',
+            collapsed: false,
+            items: [
+              { text: 'Web-01 Maven、Spring Boot 与 HTTP', link: '/markdown-backEnd/item6' },
+              { text: 'Web-02 MySQL、JDBC 与 MyBatis', link: '/markdown-backEnd/item7' },
+              { text: 'Web-03 Spring Boot CRUD、事务与全局异常处理', link: '/markdown-backEnd/item8' },
+            ]
+          },
+          {
+            text: '选做拓展',
+            collapsed: true,
+            items: [
+              { text: 'Web-04 登录与 JWT（选做）', link: '/markdown-backEnd/item9' },
+            ]
+          },
         ]
       },
       {

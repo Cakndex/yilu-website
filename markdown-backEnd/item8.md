@@ -1,25 +1,74 @@
-# 后端-0110（Web进阶）
+# Web-03 Spring Boot CRUD、事务与全局异常处理
 
-## 本节任务
+- **分类：** Web 题
+- **难度：** 综合
 
-- 使用SpringBoot实现一个简单的登录验证程序
+## 本节知识点
 
-## 题目描述
+- RESTful 接口设计
+- Controller、Service、Mapper 分层
+- 统一响应结构
+- 参数校验
+- Spring 事务管理
+- 日志
+- 全局异常处理器
 
-> "这是现代的开发方式，非常方便，快速上手。关于SpringBoot的快速搭建和开始。"
-> [Spring Boot官方入门指南](https://spring.io/guides/gs/spring-boot/)
+## 接口要求
 
-1. 在你的MySQL数据库中建立一张 `user` 表，存储 `username` 和 `password`。
-2. 使用 MyBatis 或者 `JdbcTemplate` 连接数据库，满足基础的 CRUD 操作。如果有能力可以使用 MyBatis Plus。
-3. 实现一个 `Controller`。使用 REST 风格的注解来实现对请求的映射。
-4. 将要返回给前端的数据进行包装，格式包含是否操作成功的 `flag`，以及返回的数据 `data`。
-5. 会操作 Maven 的聚合，继承，了解分模块开发。
+在上一题的学生表和 MyBatis 基础上，实现以下接口：
 
-## 附加说明
+| 功能 | 方法与路径 | 成功状态码 |
+| --- | --- | --- |
+| 查询全部学生 | `GET /api/students` | 200 |
+| 根据 id 查询 | `GET /api/students/{id}` | 200 |
+| 新增学生 | `POST /api/students` | 201 |
+| 修改学生 | `PUT /api/students/{id}` | 200 |
+| 删除学生 | `DELETE /api/students/{id}` | 200 |
 
-- 确保你已经熟悉了Spring Boot的基础，包括其自动配置、起步依赖和微服务的概念。
-- 使用Spring Initializr来初始化你的Spring Boot项目，这可以大大加快开发速度。
-- 学习如何使用Spring Security来添加安全层，这是实现登录验证的关键。
-- 理解RESTful API的设计原则，确保你的Controller能够返回正确格式的响应。
-- 掌握MyBatis或JPA等ORM工具的使用，以便于数据库操作。
-- 学会如何使用Maven进行多模块项目的构建和管理。
+所有响应使用统一结构：
+
+```json
+{
+  "code": 200,
+  "message": "success",
+  "data": {}
+}
+```
+
+## 业务要求
+
+- 学号、姓名不能为空。
+- 成绩必须在 0 到 100 之间。
+- 学号不能重复。
+- 新增、修改和删除操作需要使用事务。
+- 查询不存在的学生时抛出 `StudentNotFoundException`。
+- 请求参数错误返回 400。
+- 数据不存在返回 404。
+- 未预期的服务器错误返回 500。
+- 使用日志记录关键操作和服务器错误。
+
+## 全局处理要求
+
+实现全局异常处理器，至少分别处理：
+
+- `MethodArgumentNotValidException`：返回 400。
+- `StudentNotFoundException`：返回 404。
+- `Exception`：记录日志并返回 500。
+
+记录本题学习笔记，笔记内容不作其他限制，但开头需要回答本题的全部“必答问题”。
+
+## 必答问题
+
+1. RESTful 接口的路径和请求方法应该如何设计？
+2. 事务在什么情况下会回滚？
+3. 为什么要使用全局异常处理器？
+4. 统一响应结构对前后端协作有什么帮助？
+
+## 完成清单
+
+- [ ] 五个接口都可以正常访问
+- [ ] 成功状态码符合接口要求
+- [ ] 写操作使用了事务
+- [ ] 参数校验能够阻止非法数据
+- [ ] 全局处理器能够区分 400、404 和 500
+- [ ] 学习笔记已先回答本题全部必答问题

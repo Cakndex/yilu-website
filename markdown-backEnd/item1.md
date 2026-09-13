@@ -1,28 +1,45 @@
-# 后端介绍
+# 后端学习指南
 
-后端开发是创建完整可运行的Web应用服务端程序（服务端程序和资源合称为后端，即在服务器上运行的、不涉及用户界面的部分）的过程，是Web应用程序开发的一部分。后端开发者使用Java、Golang等语言及其衍生的各种框架、库和解决方案来实现Web应用程序的核心业务逻辑，并向外提供特定的API，使得Web应用能够高效、安全、稳定地运行。
+后端开发负责服务器上的业务逻辑、数据处理、接口设计和系统运行。一个完整的 Web 应用通常需要后端接收请求、校验和处理数据、访问数据库，再把结果返回给前端。后端方向会从 Java 基础开始，逐步学习 Maven、Spring Boot、HTTP、数据库、接口开发和登录鉴权。
 
-换句话说前端开发是写代码给用户看，后端开发是写代码给服务器看。例如，前端开发人员在应用程序中创建一个界面，上面有一个按钮，按下按钮来获取客户的数据。后端开发人员写可使得按钮工作的代码，通过指出从数据库中提取哪些数据并将其传回到前端（并最终显示在那里）。
+## 题目提交方式
 
-相信大家已经对后端有了基本了解，下面我们开始后端的学习
+推荐先把 Git 和 GitHub 的基本使用学会，每完成一道题就及时提交，不需要等所有题目都做完后再统一整理。
 
-#### 环境搭建
+1. 将后端题目提交到自己的 GitHub 仓库，并按照清晰的结构组织项目。建议每道题使用独立目录，目录内分别放置代码和学习笔记。每完成一道题，就私信出题者“已完成 xxx”；完成第一题后，私信时附上自己的仓库链接。这样可以实时交流完成情况，也便于出题者及时查看。
+2. 如果无法正常访问 GitHub，可以使用 Gitee，并使用同样的目录结构和私信方式。
+3. 也可以选择在最后统一发送邮件提交题目，邮箱为 `gj17361293487@qq.com`。选择前两种方式并已私信出题者的同学，不需要再重复发送邮件。
 
-相信大家已经了解到后端主要由Java实现，我们首先进行Java语言的学习，我们首先进行Java语言的学习，首先我们从编译器的安装以及环境的搭建开始。 Java常用的编译器有两种，一个是IDEA，另一个是eclipse。下面这个链接包含了很多软件的破解版,跟着教程自行下载[程序员工具合集 - 犬小哈教程](https://www.quanxiaoha.com/dev-tools/)
+邮件主题格式：`方向-学号-姓名`。
 
-#### 基础语法学习
+后端负责人 QQ：`838668018`
 
-大家都学习过c语言，不同语言的概念有很多是一样的
+## 学习路线
 
-#### 学习资料
+后端题目按照从 Java 基础到 JavaWeb 开发的顺序安排，建议按题目编号推进。Java 基础部分学习到面向对象高级即可，不需要覆盖整套视频；JavaWeb 的网页前端基础不单独安排后端题，从 Maven 开始进入后端主线。
 
- 这里给大家一些Java的学习网站，大家也可以到csdn、博客网、b站大学上去查找。看完Java基础视频教程(JavaSE)之后就去看JavaWeb,题目就能写个八九不离十了。
+| 题目 | 学习内容 |
+| --- | --- |
+| 基础-01 | Java 入门、变量与流程控制 |
+| 基础-02 | 数组、方法与内存基础 |
+| 基础-03 | 面向对象基础 |
+| 基础-04 | 面向对象高级 |
+| Web-01 | Maven、Spring Boot 与 HTTP |
+| Web-02 | MySQL、JDBC 与 MyBatis |
+| Web-03 | Spring Boot CRUD、事务与全局处理 |
+| Web-04 | 登录与 JWT（选做） |
 
-- [黑马程序员Java零基础视频教程_上部](https://www.bilibili.com/video/BV17F411T7Ao/?spm_id_from=333.337.search-card.all.click&vd_source=203bd9b0ea15b92c714edf0fb343276e)
-- [黑马程序员Java零基础视频教程_下部](https://www.bilibili.com/video/BV1yW4y1Y7Ms/?spm_id_from=333.999.0.0)
-- [黑马程序员JavaWeb开发教程，实现javaweb企业开发全流程（涵盖Spring+MyBatis+SpringMVC+SpringBoot等）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1m84y1w7Tb/?spm_id_from=333.1387.favlist.content.click&vd_source=4fa4a29f08db439a37d364c110fa91eb)
-- [零基础Java学习路线_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1sn4y1X7jP/?spm_id_from=333.1387.favlist.content.click&vd_source=4fa4a29f08db439a37d364c110fa91eb)
-- [Java学习教程，Java基础教程（从入门到精通）](http://c.biancheng.net/java/)
-- [Java核心技术 卷1 基础知识 原书第10版](https://pan.baidu.com/s/13HViBOjWD5mE8OMbdhaSuQ?pwd=au7k)
+## 学习资料
 
+- [Git 学习视频](https://www.bilibili.com/video/BV14Y3p6uE6b?t=1223.1)
+- [黑马程序员 2026 版 AI + Java 零基础课程](https://www.bilibili.com/video/BV1TJxCzSEEZ)
+- [AI + JavaWeb 开发入门与项目实战](https://www.bilibili.com/video/BV1yGydYEE3H)
 
+### 其他可参考资料
+
+- [黑马程序员 Java 零基础视频教程 上部](https://www.bilibili.com/video/BV17F411T7Ao/)
+- [黑马程序员 Java 零基础视频教程 下部](https://www.bilibili.com/video/BV1yW4y1Y7Ms/)
+- [黑马程序员 JavaWeb 开发教程](https://www.bilibili.com/video/BV1m84y1w7Tb/)
+- [零基础 Java 学习路线](https://www.bilibili.com/video/BV1sn4y1X7jP/)
+- [Java 学习教程，Java 基础教程](http://c.biancheng.net/java/)
+- [Java 核心技术 卷 1 基础知识 原书第 10 版](https://pan.baidu.com/s/13HViBOjWD5mE8OMbdhaSuQ?pwd=au7k)
